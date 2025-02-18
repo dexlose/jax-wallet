@@ -9,10 +9,7 @@ export interface TxHistoryItem {
   isIncoming: boolean;
 }
 
-/**
- * Запрашиваем через свой бэкенд /api/eth/history, который ходит на Etherscan.
- * Возвращаем массив { items, hasMore }.
- */
+
 export async function fetchEthHistoryPaged(
   address: string,
   page: number,
@@ -26,7 +23,6 @@ export async function fetchEthHistoryPaged(
   }
 
   const data = await resp.json();
-  // Etherscan обычно возвращает: { status: "1"|"0", message: "OK", result: [...] }
   if (!data || data.status !== "1" || !Array.isArray(data.result)) {
     return { items: [], hasMore: false };
   }
@@ -42,7 +38,6 @@ export async function fetchEthHistoryPaged(
     const valStr = valNum.toFixed(6) + " ETH";
     let tms = 0;
     if (tx.timeStamp) {
-      // timeStamp на Etherscan – в секундах
       tms = parseInt(tx.timeStamp) * 1000;
     }
     items.push({
@@ -55,7 +50,6 @@ export async function fetchEthHistoryPaged(
     });
   }
 
-  // Сортируем по дате убыванию
   items.sort((a, b) => b.timestamp - a.timestamp);
   return { items, hasMore };
 }

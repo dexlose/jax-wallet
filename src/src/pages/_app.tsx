@@ -6,8 +6,8 @@ import React, {
   useRef,
   useCallback
 } from 'react'
-import '../styles/globals.css'            // <-- ваш основной глобальный файл
-import '../styles/dashstyles.css'         // <-- новые стили дашборда, импортируем глобально
+import '../styles/globals.css'           
+import '../styles/dashstyles.css'       
 
 import { useRouter } from 'next/router'
 

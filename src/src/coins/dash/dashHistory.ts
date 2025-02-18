@@ -1,0 +1,117 @@
+export interface TxHistoryItem {
+  txid: string
+  from: string
+  to: string
+  value: string
+  timestamp: number
+  isIncoming: boolean
+}
+
+async function fetchUtxoHistoryBlockcypherDash(
+  address: string,
+  page: number,
+  limit: number
+): Promise<{ items: TxHistoryItem[]; hasMore: boolean }> {
+  const url = `/api/dash/history?address=${encodeURIComponent(address)}&page=${page}&limit=${limit}`
+  const resp = await fetch(url)
+  if (!resp.ok) {
+    return { items: [], hasMore: false }
+  }
+  const data = await resp.json()
+  if (!Array.isArray(data.txs)) {
+    return { items: [], hasMore: false }
+  }
+  const allTx = data.txs
+  const start = (page - 1) * limit
+  const end = start + limit
+  const slice = allTx.slice(start, end)
+  const hasMore = end < allTx.length
+  const decimals = 8
+  const symbol = "DASH"
+  const items: TxHistoryItem[] = []
+  for (const tx of slice) {
+    const txid = tx.hash || "???"
+    let blockTimeMs = 0
+    if (tx.received) {
+      blockTimeMs = Date.parse(tx.received)
+    } else if (tx.confirmed) {
+      blockTimeMs = Date.parse(tx.confirmed)
+    }
+    let spentSat = 0
+    let recvSat = 0
+    if (Array.isArray(tx.inputs)) {
+      for (const inp of tx.inputs) {
+        if (Array.isArray(inp.addresses) && inp.addresses.includes(address)) {
+          spentSat += Number(inp.output_value || 0)
+        }
+      }
+    }
+    if (Array.isArray(tx.outputs)) {
+      for (const out of tx.outputs) {
+        if (Array.isArray(out.addresses) && out.addresses.includes(address)) {
+          recvSat += Number(out.value || 0)
+        }
+      }
+    }
+    const net = recvSat - spentSat
+    if (net === 0) {
+      continue
+    }
+    let isInc = false
+    let finalSat = 0
+    if (net > 0) {
+      isInc = true
+      finalSat = net
+    } else {
+      isInc = false
+      finalSat = -net
+    }
+    const valNum = finalSat / 10 ** decimals
+    let cp = "(unknown)"
+    if (isInc) {
+      if (Array.isArray(tx.inputs)) {
+        loopIn: for (const inp of tx.inputs) {
+          if (Array.isArray(inp.addresses)) {
+            for (const addr of inp.addresses) {
+              if (addr !== address) {
+                cp = addr
+                break loopIn
+              }
+            }
+          }
+        }
+      }
+    } else {
+      if (Array.isArray(tx.outputs)) {
+        loopOut: for (const o2 of tx.outputs) {
+          if (Array.isArray(o2.addresses)) {
+            for (const addr of o2.addresses) {
+              if (addr !== address) {
+                cp = addr
+                break loopOut
+              }
+            }
+          }
+        }
+      }
+    }
+    items.push({
+      txid,
+      from: isInc ? cp : address,
+      to: isInc ? address : cp,
+      value: valNum.toFixed(decimals) + " " + symbol,
+      timestamp: blockTimeMs || 0,
+      isIncoming: isInc
+    })
+  }
+  items.sort((a, b) => b.timestamp - a.timestamp)
+  return { items, hasMore }
+}
+
+export async function fetchDashHistoryPaged(
+  address: string,
+  page: number,
+  limit: number
+): Promise<{ items: TxHistoryItem[]; hasMore: boolean }> {
+  return fetchUtxoHistoryBlockcypherDash(address, page, limit)
+}

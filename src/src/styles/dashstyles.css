@@ -1,0 +1,483 @@
+/* Весь верхний бар на 100% ширины */
+.topBarContainer {
+  width: 100%;
+  height: 80px; /* фиксированная высота, если нужно */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logoJaxx {
+  display: flex;
+  align-items: center;
+}
+
+/* Карусель монет по центру, но сама шапка на всю ширину */
+.coinCarousel {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-131%);
+  display: flex;
+  align-items: center;
+  gap: 0; /* убираем любой gap между стрелками и монетами */
+}
+
+/* Если ширина экрана становится меньше 900px, смещаем карусель на -50% */
+@media (max-width: 900px) {
+  .coinCarousel {
+    transform: translateX(-50%);
+  }
+}
+
+/* 
+  БЫЛО: При высоте меньше 820px смещали карусель на -102%.
+  УДАЛЕНО по условию задачи, чтобы при уменьшении высоты 
+  позиция не менялась и оставалась как в базовом состоянии.
+
+@media (max-height: 820px) {
+  .coinCarousel {
+    transform: translateX(-102%);
+  }
+}
+*/
+
+.arrowBtn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.arrowBtn:hover {
+  color: #fff;
+}
+
+.coinItems {
+  display: flex;
+  gap: 0; /* убираем отступы между элементами */
+}
+
+.coinItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #fff;
+  cursor: pointer;
+  min-width: 70px;
+}
+
+.coinItem.active {
+  font-weight: 600;
+}
+
+.coinIcon {
+  width: 36px;
+  height: 36px;
+}
+
+.coinSymbol {
+  margin-top: 2px;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circleBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ccc;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.logoutBtn {
+  margin-left: 4px;
+}
+
+/* Основное содержимое (горизонтальный Flex) */
+.dashboardContainer {
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.leftPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 0px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.rightPane {
+  width: 380px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+  .rightPane {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Остальной CSS (прокрутка, элементы и т.д.) */
+.pageScrollWrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.pageScrollWrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pageScrollWrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pageScrollWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(241, 118, 40, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 900px) {
+  .pageScrollWrapper {
+    overflow-y: hidden; /* при большой ширине прокрутка только справа */
+  }
+  .rightPane {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+}
+
+.scrollTopBtn {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 9999;
+  transition: 0.2s;
+}
+
+.scrollTopBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.floatingShapes {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+}
+
+.cube {
+  background: #ff9800;
+}
+
+.sphere {
+  background: #fff;
+  border-radius: 50%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 60px solid #ff5722;
+}
+
+.coinHeaderSection {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.mainCoinIcon {
+  width: 70px;
+  height: 70px;
+}
+
+.mainCoinSymbol {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: rgb(241, 118, 40);
+}
+
+.balanceRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bigBalance {
+  font-size: 3.2rem;
+}
+
+.refreshBtn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usdBalance {
+  font-size: 1.4rem;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.sparklineContainer {
+  width: 320px;
+  height: 140px;
+  position: relative;
+  background: none;
+}
+
+.chartLoadMsg {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 30px;
+}
+
+.chartErrorMsg {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #f66;
+  margin-top: 30px;
+}
+
+.addressBlock {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* ДОПОЛНИТЕЛЬНО: если экран ВЫСОТОЙ < 820px или шириной > 1000px, 
+   то выводим блок адреса, QR, кнопку SEND в одну строку */
+@media (min-width: 1000px), (max-height: 820px) {
+  .addressBlock {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .qrHolder {
+    transform: scale(0.9);
+  }
+}
+
+.addressRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 1rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.addrLabel {
+  font-weight: 600;
+  color: #bbb;
+  margin-bottom: 4px;
+}
+
+.addrValue {
+  color: #fff;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.qrHolder {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sendBtn {
+  background: rgb(241, 118, 40);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.historyTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.txListContainer {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.txListContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.txListContainer::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.txListContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(241, 118, 40, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.typingLoader {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.noTx {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.txItem {
+  position: relative;
+  transition: background 0.2s;
+  margin-bottom: 6px;
+  padding-left: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.txItemMain {
+  cursor: pointer;
+  padding: 6px;
+}
+
+.txItemRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.txArrowIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.txValue {
+  font-size: 1rem;
+}
+
+.txTime {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-left: 24px;
+  margin-top: 2px;
+}
+
+.txDetails {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 8px;
+}
+
+.txDetailsContent {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 8px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.txIdLink {
+  text-decoration: underline;
+  cursor: pointer;
+  word-break: break-all;
+}

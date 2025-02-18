@@ -1,0 +1,63 @@
+{
+  "name": "Jax",
+  "version": "1.9.3",
+  "description": "Jax Wallet",
+  "author": "Dev Soer Development",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder --dir",
+    "distDir": "electron-builder --dir"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^24.5.0"
+  },
+  "build": {
+    "appId": "com.jaxwallet.app",
+    "productName": "Jax Wallet",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "asar": false,
+    "npmRebuild": false,
+
+    "files": [
+      "main.js",
+      "package.json",
+      "preload.js",
+      "overlay.html",
+      "images/**/*",
+
+      "!app-next" 
+    ],
+    "extraResources": [
+      {
+        "from": "app-next",
+        "to": "app/app-next",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+
+    "win": {
+      "target": "dir",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "license": "build/license.html",
+      "uninstallerIcon": "build/icon.ico",
+      "uninstallDisplayName": "JaxxWallet",
+      "artifactName": "jax-setup-${version}.${ext}",
+      "warningsAsErrors": false
+    }
+  }
+}

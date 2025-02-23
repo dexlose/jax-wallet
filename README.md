@@ -17,9 +17,9 @@
 ---
 
 ## 📦 File Sizes for this Release
-- **Windows Installer**: ~216 MB
-- **macOS DMG**: ~89 MB
-- **Linux AppImage**: ~95 MB
+- **Windows Installer**: ~211 MB
+- **macOS DMG**: ~86 MB
+- **Linux AppImage**: ~93 MB
 
 ---
 
